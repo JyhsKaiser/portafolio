@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Badge } from './Badge';
 
 export const ProjectCard = ({ project }) => {

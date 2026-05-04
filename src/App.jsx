@@ -1,7 +1,8 @@
-import React from 'react';
+
 import { HeroView } from './presentation/views/HeroView';
 import { ProjectsView } from './presentation/views/ProjectsView';
 import { ExperienceView } from './presentation/views/ExperienceView';
+import { FooterView } from './presentation/views/FooterView'; // Añade esta importación
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <ProjectsView />
         <ExperienceView />
       </main>
-      {/* <Footer /> */}
+      <FooterView /> {/* Renderiza el componente */}
     </div>
   );
 }

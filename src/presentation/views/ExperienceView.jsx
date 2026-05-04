@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { usePortfolio } from '../hooks/usePortfolio';
 import { ExperienceItem } from '../components/ui/ExperienceItem';
 

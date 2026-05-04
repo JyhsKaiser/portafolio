@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Aquí defines tus colores personalizados */
+  --color-base: #0f172a; /* Cambia esto por tu color de fondo */
+  --color-accent: #3b82f6; /* Cambia esto por tu color de acento */
+}
 
 @layer base {
   :root {
@@ -8,32 +12,10 @@
   }
 
   body {
+    /* Ahora bg-base funcionará porque existe --color-base */
     @apply bg-base text-zinc-300 font-sans antialiased;
-    /* Suavizado de scroll para el One-page fluido */
     scroll-behavior: smooth;
   }
 
-  /* Personalización de la barra de desplazamiento para Fedora/Chrome/Edge */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-base;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-zinc-800 rounded-full border-2 border-base hover:bg-accent;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply text-white font-bold tracking-tight font-sans;
-  }
-}
-
-@layer components {
-  .section-container {
-    @apply max-w-6xl mx-auto px-6 py-20;
-  }
+  /* ... resto de tu código ... */
 }
