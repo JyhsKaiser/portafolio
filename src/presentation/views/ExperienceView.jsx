@@ -8,7 +8,7 @@ export const ExperienceView = () => {
     if (loading) return null;
 
     return (
-        <section id="experience" className="section-container">
+        <section id="experience" className="section-container my-10">
             <div className="mb-12">
                 <h2 className="text-3xl md:text-4xl mb-4">Trayectoria Profesional</h2>
                 <div className="h-1 w-20 bg-accent rounded-full"></div>
