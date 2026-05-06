@@ -5,11 +5,11 @@ export const portfolioData = {
         description: "Especializado en la creación y migración de sistemas críticos utilizando stacks modernos. Mi enfoque combina arquitectura de software limpia con protocolos de ciberseguridad desde la raíz, garantizando el rendimiento y la integridad de la información para organizaciones de alto impacto."
     },
     techStack: {
-        frontend: ["SvelteKit", "React", "Angular"],
+        frontend: ["Angular", "React", "SvelteKit"],
         backend: ["Java (Spring Boot)", "Node.js (Fastify)", "Python"],
-        datos: ["MySQL", "PostgreSQL", "Prisma", "Zod"],
-        infraestructura: ["Docker", "Microsoft Azure", "Git", "Fedora Linux"],
-        seguridad: ["Kali Linux", "YARA", "Wireshark", "Autopsy", "OpenCV (CV)"]
+        datos: ["MySQL", "PostgreSQL", "SQL Server", "Prisma", "Zod",],
+        infraestructura: ["Docker", "Azure", "Git", "Linux (Fedora, Kali)"],
+        seguridad: ["JWT", "Zod", "Bcrypt", "Pentesting (Nmap, Wireshark)", "OpenCV (CV)"]
     },
     projects: [
         {
@@ -24,9 +24,9 @@ export const portfolioData = {
                 "/assets/p-torneos/torneos-6.webp",
                 "/assets/p-torneos/torneos-7.webp",
             ],
-            stack: ["Java", "Spring Boot", "Microservicios", "React", "Vite"],
+            stack: ["Spring Boot", "React", "Microservicios", "Vite"],
             challenge: "Diseñar un ecosistema de gestión deportiva integral (árbitros, equipos, estadísticas y convocatorias) evitando la creación de un monolito frágil, garantizando que el alto tráfico durante los encuentros no afectara la gestión de credenciales o registros.",
-            solution: "Arquitectura orientada a microservicios implementando tres nodos independientes (S1: Gestión de Usuarios/Equipos, S2: Convocatorias, S3: Encuentros y Estadísticas). Se implementó la comunicación inter-servicios mediante clientes Feign y se orquestó el consumo de las APIs (puertos 8080, 8081, 8082) a través de un Factory Pattern en un frontend modular construido con React y Vite.",
+            solution: "Arquitectura orientada a microservicios implementando tres nodos independientes (S1: Gestión de Usuarios/Equipos, S2: Convocatorias, S3: Encuentros y Estadísticas). Se implementó la comunicación inter-servicios mediante clientes Feign y se orquestó el consumo de las APIs a través de un Factory Pattern en un frontend modular construido con React y Vite.",
             impact: "Alta disponibilidad y escalabilidad por dominio. El aislamiento de los servicios asegura que la caída o saturación del módulo de estadísticas no comprometa la operatividad del registro de nuevos jugadores o la administración de credenciales."
         },
         {
@@ -39,7 +39,7 @@ export const portfolioData = {
                 "/assets/p-trail/trail-4.webp",
                 "/assets/p-trail/trail-5.webp",
             ],
-            stack: ["Angular", "Spring Boot", "Docker", "Azure", "MySQL"],
+            stack: ["Angular", "Spring Boot", "Docker", "Azure", "MySQL", "JWT"],
             challenge: "Desarrollar una plataforma integral para la monitorización de métricas de rendimiento y estrategias de recuperación en el trail running, requiriendo un procesamiento de datos preciso y una visualización fluida para el usuario final.",
             solution: "Construcción de una arquitectura Full-Stack utilizando Spring Boot para un backend robusto acoplado a una base de datos relacional en MySQL y usando JWT como medida de seguridad en el inicio de sesión. El consumo de la API se implementó a través de un cliente reactivo en Angular, optimizando todo el ecosistema para su despliegue y gestión en la infraestructura en la nube de Azure.",
             impact: "Creación de una solución end-to-end que transforma datos en bruto en analíticas accionables. Este proyecto demuestra autonomía total en el ciclo de vida del software: desde el modelado de la base de datos y la lógica de negocio, hasta el despliegue en un entorno Cloud de grado de producción."
@@ -49,9 +49,9 @@ export const portfolioData = {
             title: "Sistemas de Visión Artificial y OCR",
             images: [],
             stack: ["Python", "OpenCV", "Tesseract OCR", "Data Processing"],
-            challenge: "Automatizar la toma de decisiones en procesos físicos reales —como la clasificación agrícola y la digitalización de matrices impresas— eliminando el error humano mediante el análisis digital no invasivo.",
-            solution: "Ingeniería de pipelines de visión por computadora en Python. Se implementó el análisis del espacio de color HSV mediante OpenCV para determinar la madurez y calibre de frutos en tiempo real. Paralelamente, se integró Tesseract OCR para la detección y extracción precisa de datos alfanuméricos desde medios físicos.",
-            impact: "Evidencia una capacidad avanzada para salir del desarrollo web tradicional y resolver problemas algorítmicos complejos, conectando el software con el mundo físico mediante automatización y procesamiento de imágenes en tiempo real."
+            challenge: "Automatizar la toma de decisiones en procesos físicos reales como la clasificación agrícola y la digitalización de matrices impresas eliminando el error humano mediante el análisis digital no invasivo.",
+            solution: "Ingeniería de pipelines de visión por computadora en Python. Se implementó el análisis del espacio de color HSV mediante OpenCV para determinar la madurez y calibre de jitomates en tiempo real. Paralelamente, se integró Tesseract OCR para la detección y extracción precisa de datos alfanuméricos desde medios físicos.",
+            impact: "Automatización integral del control de calidad mediante visión artificial, logrando la categorización precisa de madurez y calibre en tiempo real. La implementación eliminó el error humano en la línea de producción y optimizó el flujo de filtrado en la banda transportadora."
 
         }
     ],
