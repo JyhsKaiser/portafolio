@@ -70,10 +70,9 @@ export const Navbar = () => {
 
                 {/* Navegación Desktop */}
                 <nav className="hidden md:flex gap-8 text-sm">
-                    <a href="#projects" className={getLinkClasses('projects')}>Proyectos</a>
-
-                    <a href="#experience" className={getLinkClasses('experience')}>Experiencia</a>
                     <a href="#stack" className={getLinkClasses('stack')}>Tech Stack</a>
+                    <a href="#projects" className={getLinkClasses('projects')}>Proyectos</a>
+                    <a href="#experience" className={getLinkClasses('experience')}>Experiencia</a>
                     {/* <a href="#contact" className={getLinkClasses('contact')}>Contacto</a> */}
                 </nav>
 
@@ -111,9 +110,9 @@ export const Navbar = () => {
                     }`}
             >
                 <nav className="flex flex-col px-6 py-6 gap-6">
+                    <a href="#stack" onClick={toggleMenu} className={getMobileLinkClasses('stack')}>Tech Stack</a>
                     <a href="#projects" onClick={toggleMenu} className={getMobileLinkClasses('projects')}>Proyectos</a>
                     <a href="#experience" onClick={toggleMenu} className={getMobileLinkClasses('experience')}>Experiencia</a>
-                    <a href="#stack" onClick={toggleMenu} className={getMobileLinkClasses('stack')}>Tech Stack</a>
                     {/* <a href="#contact" onClick={toggleMenu} className={getMobileLinkClasses('contact')}>Contacto</a> */}
 
                     {/* Botón CTA dentro del menú móvil */}

@@ -10,7 +10,7 @@ export const ProjectsView = () => {
     if (loading) return null;
 
     return (
-        <section id="projects" className="section-container relative">
+        <section id="projects" className="section-container relative md:mx-20 lg:mx-50">
             <div className="mb-12">
                 <h2 className="text-3xl md:text-4xl mb-4">Proyectos Destacados</h2>
                 <div className="h-1 w-20 bg-accent rounded-full"></div>

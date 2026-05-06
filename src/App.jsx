@@ -1,5 +1,5 @@
 import { HeroView } from './presentation/views/HeroView';
-import { TechStackView } from './presentation/views/TechStackView'; // Importación
+import { TechStackView } from './presentation/views/TechStackView';
 import { ProjectsView } from './presentation/views/ProjectsView';
 import { ExperienceView } from './presentation/views/ExperienceView';
 import { FooterView } from './presentation/views/FooterView';
@@ -10,18 +10,13 @@ function App() {
   return (
     <div className="min-h-screen bg-base relative">
       <Navbar />
-
-      {/* El pt-20 compensa la altura del Navbar fijo */}
-      <main className="pt-20 mx-4 md:mx-20 lg:mx-50">
+      <main className="pt-20">
         <HeroView />
-
+        <TechStackView />
         <ProjectsView />
         <ExperienceView />
-        <TechStackView />
-
       </main>
       <FooterView />
-
       <WhatsAppButton />
     </div>
   );

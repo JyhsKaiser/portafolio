@@ -7,7 +7,7 @@ export const TechStackView = () => {
     if (loading || !techStack) return null;
 
     return (
-        <section id="stack" className="section-container my-10">
+        <section id="stack" className="section-container my-10 md:mx-20 lg:mx-50">
             <div className="mb-12">
                 <h2 className="text-3xl md:text-4xl mb-4">Tech Stack</h2>
                 <div className="h-1 w-20 bg-accent rounded-full"></div>

@@ -8,7 +8,7 @@ export const HeroView = () => {
     if (loading || !hero) return null;
 
     return (
-        <section className="section-container min-h-[90vh] flex items-center relative">
+        <section className="section-container min-h-[90vh] flex items-center relative md:mx-20 lg:mx-50">
             {/* <section className="section-container min-h-[80vh] flex items-center my-10"> */}
             <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 w-full pb-16">
                 {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 w-full"> */}
