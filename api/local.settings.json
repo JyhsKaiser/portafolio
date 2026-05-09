@@ -2,6 +2,6 @@
     "IsEncrypted": false,
     "Values": {
         "FUNCTIONS_WORKER_RUNTIME": "node",
-        "GEMINI_API_KEY": "AIzaSyDiMbwqHFFNzXXbCy8d1HRkdUtUKeiBiKM"
+        "GEMINI_API_KEY": ""
     }
 }
