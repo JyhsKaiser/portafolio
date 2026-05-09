@@ -5,6 +5,7 @@ import { ExperienceView } from './presentation/views/ExperienceView';
 import { FooterView } from './presentation/views/FooterView';
 import { Navbar } from './presentation/components/layout/Navbar';
 import { WhatsAppButton } from './presentation/components/ui/WhatsAppButton';
+import { AIChatbot } from './presentation/components/ui/AIChatbot';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       </main>
       <FooterView />
       <WhatsAppButton />
+      <AIChatbot />
     </div>
   );
 }
