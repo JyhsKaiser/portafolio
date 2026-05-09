@@ -19,8 +19,8 @@ app.http('chat', {
             }
 
             const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
+            // const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             // El prompt del sistema concatenado para máxima compatibilidad
             const systemPrompt = `
 Eres el asistente virtual integrado en el portafolio de Jovani, un Software Architect & Security Lead.
