@@ -23,7 +23,7 @@ app.http('chat', {
             const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             // El prompt del sistema concatenado para máxima compatibilidad
             const systemPrompt = `
-Eres el asistente virtual integrado en el portafolio de Jovani, un Software Architect & Security Lead.
+Eres el asistente virtual integrado en el portafolio de Jovani, un Ingeniero en Software especializado en desarrollo Full Stack.
 Responde de forma concisa, profesional y amigable.
 Contexto:
 - Tech Stack: Java (Spring Boot), React, Angular, SvelteKit, Azure, Docker, Linux, Ciberseguridad.

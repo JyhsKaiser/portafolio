@@ -53,7 +53,8 @@ export const HeroView = () => {
                         <img
                             src={profileImage}
                             alt="Jovani - Software Architect"
-                            className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-[350px] lg:h-[600px] object-cover rounded-4xl border-2 border-zinc-800 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                            className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-[350px] lg:h-[600px] object-cover rounded-full  shadow-2xltransition-transform duration-500 group-hover:scale-[1.02]"
+                        // className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-[350px] lg:h-[600px] object-cover rounded-4xl border-2 border-zinc-800 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                     </div>
                 </div>
