@@ -64,7 +64,7 @@ export const Navbar = () => {
                 {/* Logo / Nombre */}
                 <div className="text-xl font-bold font-mono tracking-tighter text-white z-50">
                     <a href="#" className="hover:text-accent transition-colors">
-                        Jovani<span className="text-accent">.dev</span>
+                        Jyonhers<span className="text-accent">.dev</span>
                     </a>
                 </div>
 

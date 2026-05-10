@@ -10,7 +10,7 @@ export const HeroView = () => {
     return (
         <section className="section-container min-h-[90vh] flex items-center relative md:mx-20 lg:mx-50">
             {/* <section className="section-container min-h-[80vh] flex items-center my-10"> */}
-            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 w-full pb-16">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 w-full pb-0 lg:pb-16">
                 {/* <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 w-full"> */}
 
                 {/* Columna Izquierda: Texto y Call to Actions */}
@@ -26,8 +26,8 @@ export const HeroView = () => {
                         </h1>
                         <div className="font-mono text-xl md:text-2xl lg:text-3xl font-bold flex flex-wrap items-center justify-center lg:justify-start gap-2">
                             <span className="text-accent">{'>'}</span>
-                            <span className="text-zinc-300">Ingeniero en Software</span>
-                            <span className="text-zinc-600">&</span>
+                            {/* <span className="text-zinc-300">Ingeniero en Software</span> */}
+                            {/* <span className="text-zinc-600">&</span> */}
                             <span className="text-zinc-300">Desarrollador Full Stack</span>
                         </div>
                     </div>

@@ -7,12 +7,23 @@ export const AIChatbot = () => {
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
     const messagesEndRef = useRef(null);
+    // 1. Añadimos un ref para manipular el input directamente
+    const inputRef = useRef(null);
 
     // Auto-scroll al último mensaje
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
+
+    // 2. Efecto para auto-enfocar el input cuando se abre el chat o termina de cargar
+    useEffect(() => {
+        if (isOpen && !isLoading) {
+            // Un pequeño timeout asegura que la animación de apertura haya terminado
+            setTimeout(() => inputRef.current?.focus(), 100);
+        }
+    }, [isOpen, isLoading]);
 
     const sendMessage = async (e) => {
         e.preventDefault();
@@ -24,8 +35,6 @@ export const AIChatbot = () => {
         setIsLoading(true);
 
         try {
-            // Llamamos a nuestro propio backend serverless de Azure
-            // En desarrollo local Vite puede necesitar un proxy, pero en Azure esto funciona directo
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -33,7 +42,6 @@ export const AIChatbot = () => {
             });
 
             const data = await response.json();
-
             setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
         } catch (error) {
             setMessages(prev => [...prev, { role: 'assistant', content: 'Hubo un error de red. Intenta más tarde.' }]);
@@ -44,30 +52,35 @@ export const AIChatbot = () => {
 
     return (
         <>
-            {/* Botón flotante para abrir el chat (Lado inferior izquierdo) */}
+            {/* Botón flotante: Movido a bottom-24 right-6 (Justo arriba de WhatsApp) */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-accent text-white rounded-full shadow-lg shadow-accent/30 hover:bg-accent-hover hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+                className="fixed bottom-24 right-6 z-50 flex items-center justify-center w-14 h-14 bg-accent text-white rounded-full shadow-lg shadow-accent/30 hover:bg-accent-hover hover:scale-110 hover:-translate-y-1 transition-all duration-300"
                 aria-label="Abrir Asistente IA"
             >
                 {isOpen ? (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 ) : (
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8m-7-.75a2 2 0 100 4h8a2 2 0 100-4h-8zM12 3a9 9 0 100 18 9 9 0 000-18z" /></svg>
+                    // Nuevo Icono de Robot
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h2m4 0h2m-6 4h4" />
+                    </svg>
                 )}
             </button>
 
-            {/* Ventana del Chatbot */}
-            <div className={`fixed bottom-24 left-6 z-50 w-80 md:w-96 bg-surface border border-zinc-800 rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-left flex flex-col overflow-hidden ${isOpen ? 'scale-100 opacity-100 visible' : 'scale-0 opacity-0 invisible'}`}>
+            {/* Ventana del Chatbot: Movida a bottom-40 right-6, con dimensiones responsivas */}
+            <div className={`fixed bottom-40 right-6 z-50 w-[calc(100vw-3rem)] sm:w-80 md:w-96 h-[500px] max-h-[70vh] bg-surface border border-zinc-800 rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right flex flex-col overflow-hidden ${isOpen ? 'scale-100 opacity-100 visible' : 'scale-0 opacity-0 invisible'}`}>
 
-                {/* Header del Chat */}
-                <div className="bg-zinc-900 border-b border-zinc-800 p-4 flex items-center gap-3">
+                {/* Header (shrink-0 evita que se aplaste al faltar espacio) */}
+                <div className="bg-zinc-900 border-b border-zinc-800 p-4 flex items-center gap-3 shrink-0">
                     <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
                     <h3 className="text-white font-mono text-sm font-bold">Asistente IA de Jovani</h3>
                 </div>
 
-                {/* Área de Mensajes */}
-                <div className="flex-1 p-4 h-80 overflow-y-auto flex flex-col gap-4 scrollbar-thin">
+                {/* Área de Mensajes (flex-1 para absorber el espacio, overscroll-contain para UX) */}
+                <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-4 scrollbar-thin overscroll-contain">
                     {messages.map((msg, index) => (
                         <div key={index} className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'user' ? 'bg-accent text-white self-end rounded-br-sm' : 'bg-zinc-800 text-zinc-300 self-start rounded-bl-sm'}`}>
                             {msg.content}
@@ -84,8 +97,9 @@ export const AIChatbot = () => {
                 </div>
 
                 {/* Input Area */}
-                <form onSubmit={sendMessage} className="p-3 bg-zinc-900 border-t border-zinc-800 flex gap-2">
+                <form onSubmit={sendMessage} className="p-3 bg-zinc-900 border-t border-zinc-800 flex gap-2 shrink-0">
                     <input
+                        ref={inputRef} // 3. Vinculamos el ref al elemento DOM
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
